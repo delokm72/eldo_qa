@@ -6,11 +6,16 @@ Library     Selenium2Library
 
 ${eldo}         https://eldorado.ua/
 ${cabinet}      id=cabinet-field
-
+${catalog}      css=section:nth-child(3) > div.row.section-items-list > div:nth-child(1) div.buy-button-placeholder > div
 
 *** Keywords ***
 
-start
+
+On Fail
+    [Documentation]                      On Fail
+    Set Screenshot Directory             ${OUTPUTDIR}/Errors/
+
+prepare
     Open Browser    ${eldo}     Chrome
     maximize browser window
     #set selenium speed  1
